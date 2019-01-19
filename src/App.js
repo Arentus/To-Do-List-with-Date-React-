@@ -48,9 +48,10 @@ class TaskBase extends React.Component {
     return(
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <Label for="taskText">Task : </Label>
-          <Input type="text" id="taskText" placeholder={"agregar a las "+this.state.date} value={this.state.input} onChange={this.handleChange}/>
-          <Button onClick={this.handleClick} color="danger">Agregar</Button>
+          <TaskBar state={this.state}
+            handleChange={this.handleChange}
+            handleClick={this.handleClick}
+            />
         </FormGroup>
         <div>
           <Tasks tasks={this.state.tasks} />
@@ -61,6 +62,33 @@ class TaskBase extends React.Component {
 
 }
 
+class TaskBar extends React.Component{
+
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+      <div>
+        <Label for="taskText">Task : </Label>
+
+        <Input 
+          type="text" 
+          id="taskText" 
+          placeholder={"agregar a las "+this.props.state.date} 
+          value={this.props.state.input} 
+          onChange={this.props.handleChange}
+        />
+
+        <Button 
+          onClick={this.props.handleClick} 
+          color="danger">
+          Agregar
+        </Button>
+      </div>
+    )
+  }
+}
 
 class Tasks extends React.Component{
   constructor(props){
@@ -68,16 +96,14 @@ class Tasks extends React.Component{
   }
   render(){
     return (
-        <ul>
+        <div>
         {this.props.tasks.map(task => (  
               <div className="taskBox" key={task.id} id={task.id}>
                   {task.date}
                   <p className="taskText">{task.text}</p>
               </div>
-            )
-          )
-        }
-        </ul>
+            ))}
+        </div>
     );
   }
 }
