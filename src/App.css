@@ -27,6 +27,20 @@
 .wrapper input{
   margin: 1em 0em;
 }
+
+.taskBox{
+  padding: 1.2em;
+  border-radius: 5px;
+  background: rgb(33,122,33);
+  color:white;
+  margin: 1rem;
+}
+
+.taskText{
+  background: rgb(132, 192, 142);
+  padding: .4em;
+  border-radius: 5px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
