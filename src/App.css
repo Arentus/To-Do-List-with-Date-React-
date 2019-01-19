@@ -21,7 +21,12 @@
 .App-link {
   color: #61dafb;
 }
-
+.wrapper{
+  padding: 2em;
+}
+.wrapper input{
+  margin: 1em 0em;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
